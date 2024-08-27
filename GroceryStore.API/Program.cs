@@ -8,6 +8,8 @@ using Microsoft.Extensions.Hosting;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.AddServiceDefaults();
+
 // Configuration
 builder.Services.Configure<DiagnosticsOptions>(builder.Configuration.GetSection("Diganostics"));
 builder.Services.Configure<JwtOptions>(builder.Configuration.GetSection("JwtOptions"));
@@ -35,6 +37,8 @@ builder.Services.AddCors(options =>
 builder.Services.AddControllers();
 
 var app = builder.Build();
+
+app.MapDefaultEndpoints();
 
 
 if (app.Environment.IsDevelopment())

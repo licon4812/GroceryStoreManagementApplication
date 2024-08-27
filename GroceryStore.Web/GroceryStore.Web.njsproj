@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+        <SchemaVersion>2.0</SchemaVersion>
+        <ProjectGuid>{aee8d2e9-04d8-41f8-8b18-98905b4a3f03}</ProjectGuid>
+        <ProjectHome>.</ProjectHome>
+        <ProjectView>ShowAllFiles</ProjectView>
+        <StartupFile />
+        <WorkingDirectory>.</WorkingDirectory>
+        <OutputPath>.</OutputPath>
+        <ProjectTypeGuids>{3AF33F2E-1136-4D97-BBB7-1795711AC8B8};{349c5851-65df-11da-9384-00065b846f21};{9092AA53-FB77-4645-B42D-1CCCA6BD08BD}</ProjectTypeGuids>
+        <EnableTypeScript>true</EnableTypeScript>
+        <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">17.0</VisualStudioVersion>
+        <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+    </PropertyGroup>
+    <PropertyGroup Condition="'$(Configuration)' == 'Debug'" />
+    <PropertyGroup Condition="'$(Configuration)' == 'Release'" />
+    <ItemGroup>
+        <Content Include="angular.json" />
+        <Content Include="package-lock.json" />
+        <Content Include="package.json" />
+        <Content Include="tsconfig.app.json" />
+        <None Include="tsconfig.json" />
+        <Content Include="tsconfig.spec.json" />
+        <Content Include="README.md" />
+        <Content Include="src\index.html" />
+        <Content Include="src\styles.css" />
+        <Content Include="src\favicon.ico" />
+        <None Include="src\main.ts" />
+        <Content Include="src\app\app.component.html" />
+        <Content Include="src\app\app.component.css" />
+        <None Include="src\app\app.component.spec.ts" />
+        <None Include="src\app\app.component.ts" />
+        <None Include="src\app\app.config.ts" />
+        <None Include="src\app\app.routes.ts" />
+        <None Include="src\environments\environment.dev.ts" />
+        <None Include="src\environments\environment.ts" />
+        <None Include="src\app\guards\auth.guard.ts" />
+        <None Include="src\app\interceptors\auth.interceptor.ts" />
+        <None Include="src\app\interceptors\http-error.interceptor.ts" />
+        <None Include="src\app\interfaces\aisle-service.interface.ts" />
+        <None Include="src\app\interfaces\auth-service.interface.ts" />
+        <None Include="src\app\interfaces\product-service.interface.ts" />
+        <None Include="src\app\models\aisle.ts" />
+        <None Include="src\app\models\base-entity.ts" />
+        <None Include="src\app\models\product.ts" />
+        <None Include="src\app\models\recent-purchases.ts" />
+        <None Include="src\app\services\aisle.service.ts" />
+        <None Include="src\app\services\auth.service.ts" />
+        <None Include="src\app\services\cache.service.ts" />
+        <None Include="src\app\services\product.service.ts" />
+        <None Include="src\app\services\theme.service.ts" />
+        <Content Include="src\app\components\layout\layout.component.html" />
+        <Content Include="src\app\components\layout\layout.component.css" />
+        <None Include="src\app\components\layout\layout.component.ts" />
+        <Content Include="src\app\components\common\landing-card\landing-card.component.html" />
+        <None Include="src\app\components\common\landing-card\landing-card.component.ts" />
+        <Content Include="src\app\components\common\stat-card\stat-card.component.html" />
+        <Content Include="src\app\components\common\stat-card\stat-card.component.css" />
+        <None Include="src\app\components\common\stat-card\stat-card.component.ts" />
+        <Content Include="src\app\components\layout\topbar\topbar.component.html" />
+        <Content Include="src\app\components\layout\topbar\topbar.component.css" />
+        <None Include="src\app\components\layout\topbar\topbar.component.ts" />
+        <Content Include="src\app\components\views\dashboard\dashboard.component.html" />
+        <Content Include="src\app\components\views\dashboard\dashboard.component.css" />
+        <None Include="src\app\components\views\dashboard\dashboard.component.ts" />
+        <Content Include="src\app\components\views\login\login.component.html" />
+        <None Include="src\app\components\views\login\login.component.ts" />
+        <Content Include="src\app\components\views\not-found\not-found.component.html" />
+        <None Include="src\app\components\views\not-found\not-found.component.ts" />
+        <Content Include="src\app\components\views\dashboard\aisle\aisle.component.html" />
+        <Content Include="src\app\components\views\dashboard\aisle\aisle.component.css" />
+        <None Include="src\app\components\views\dashboard\aisle\aisle.component.ts" />
+        <Content Include="src\app\components\views\dashboard\overview\overview.component.html" />
+        <Content Include="src\app\components\views\dashboard\overview\overview.component.css" />
+        <None Include="src\app\components\views\dashboard\overview\overview.component.ts" />
+        <Content Include="src\app\components\views\dashboard\product\product.component.html" />
+        <Content Include="src\app\components\views\dashboard\product\product.component.css" />
+        <None Include="src\app\components\views\dashboard\product\product.component.ts" />
+        <Content Include="src\app\components\views\dashboard\aisle\create-aisle\create-aisle.component.html" />
+        <None Include="src\app\components\views\dashboard\aisle\create-aisle\create-aisle.component.ts" />
+        <Content Include="src\app\components\views\dashboard\product\create-product\create-product.component.html" />
+        <None Include="src\app\components\views\dashboard\product\create-product\create-product.component.ts" />
+        <None Include="src\app\models\requests\aisle-requests.ts" />
+        <None Include="src\app\models\requests\login-request.ts" />
+        <None Include="src\app\models\requests\product-requests.ts" />
+        <None Include="src\app\models\responses\aisle-responses.ts" />
+        <None Include="src\app\models\responses\auth-responses.ts" />
+        <None Include="src\app\models\responses\product-responses.ts" />
+        <None Include="src\app\utils\extensions\date-utils.ts" />
+        <None Include="src\app\utils\extensions\string-utils.ts" />
+        <Content Include="src\assets\themes\lara-dark-blue\theme.css" />
+        <Content Include="src\assets\themes\lara-light-blue\theme.css" />
+    </ItemGroup>
+    <ItemGroup>
+        <Folder Include="src" />
+        <Folder Include="src\app" />
+        <Folder Include="src\app\components" />
+        <Folder Include="src\app\components\common" />
+        <Folder Include="src\app\components\common\landing-card" />
+        <Folder Include="src\app\components\common\stat-card" />
+        <Folder Include="src\app\components\layout" />
+        <Folder Include="src\app\components\layout\topbar" />
+        <Folder Include="src\app\components\views" />
+        <Folder Include="src\app\components\views\dashboard" />
+        <Folder Include="src\app\components\views\dashboard\aisle" />
+        <Folder Include="src\app\components\views\dashboard\aisle\create-aisle" />
+        <Folder Include="src\app\components\views\dashboard\overview" />
+        <Folder Include="src\app\components\views\dashboard\product" />
+        <Folder Include="src\app\components\views\dashboard\product\create-product" />
+        <Folder Include="src\app\components\views\login" />
+        <Folder Include="src\app\components\views\not-found" />
+        <Folder Include="src\app\guards" />
+        <Folder Include="src\app\interceptors" />
+        <Folder Include="src\app\interfaces" />
+        <Folder Include="src\app\models" />
+        <Folder Include="src\app\models\requests" />
+        <Folder Include="src\app\models\responses" />
+        <Folder Include="src\app\services" />
+        <Folder Include="src\app\utils" />
+        <Folder Include="src\app\utils\extensions" />
+        <Folder Include="src\assets" />
+        <Folder Include="src\assets\themes" />
+        <Folder Include="src\assets\themes\lara-dark-blue" />
+        <Folder Include="src\assets\themes\lara-dark-blue\fonts" />
+        <Folder Include="src\assets\themes\lara-light-blue" />
+        <Folder Include="src\assets\themes\lara-light-blue\fonts" />
+        <Folder Include="src\environments" />
+    </ItemGroup>
+    <Import Project="$(MSBuildToolsPath)\Microsoft.Common.targets" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+    <Import Project="$(VSToolsPath)\Node.js Tools\Microsoft.NodejsToolsV2.targets" />
+    <ProjectExtensions>
+        <VisualStudio>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+            <WebProjectProperties>
+              <UseIIS>False</UseIIS>
+              <AutoAssignPort>True</AutoAssignPort>
+              <DevelopmentServerPort>0</DevelopmentServerPort>
+              <DevelopmentServerVPath>/</DevelopmentServerVPath>
+              <IISUrl>http://localhost:48022/</IISUrl>
+              <NTLMAuthentication>False</NTLMAuthentication>
+              <UseCustomServer>True</UseCustomServer>
+              <CustomServerUrl>http://localhost:1337</CustomServerUrl>
+              <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+            </WebProjectProperties>
+          </FlavorProperties>
+          <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}" User="">
+            <WebProjectProperties>
+              <StartPageUrl>
+              </StartPageUrl>
+              <StartAction>CurrentPage</StartAction>
+              <AspNetDebugging>True</AspNetDebugging>
+              <SilverlightDebugging>False</SilverlightDebugging>
+              <NativeDebugging>False</NativeDebugging>
+              <SQLDebugging>False</SQLDebugging>
+              <ExternalProgram>
+              </ExternalProgram>
+              <StartExternalURL>
+              </StartExternalURL>
+              <StartCmdLineArguments>
+              </StartCmdLineArguments>
+              <StartWorkingDirectory>
+              </StartWorkingDirectory>
+              <EnableENC>False</EnableENC>
+              <AlwaysStartWebServerOnDebug>False</AlwaysStartWebServerOnDebug>
+            </WebProjectProperties>
+          </FlavorProperties>
+        </VisualStudio>
+    </ProjectExtensions>
+</Project>
