@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongo:4.4
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+      
+  api:
+    build:
+      context: ./GroceryStore.API
+      dockerfile: dockerfile
+    ports:
+      - "5001:8080"
+    depends_on:
+      - mongodb
+
+  web:
+    build:
+      context: ./GroceryStore.Web
+      dockerfile: dockerfile
+    ports:
+      - "4200:4200"
+    depends_on:
+      - api
+
+volumes:
+  mongo-data:

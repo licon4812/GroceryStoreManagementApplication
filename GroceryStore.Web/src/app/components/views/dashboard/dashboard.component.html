@@ -1,0 +1,20 @@
+<ng-container>    
+    <div class="dashboard-nav-line flex gap-2 align-items-center text-700 flex-wrap mb-4">
+        <div>Managing</div>
+        <div class="flex">
+            <i class="pi pi-box mr-2 text-blue-300"></i>
+            <div>{{overviewResponse()?.totalProducts}} Products across</div>
+        </div>
+        <div class="flex">
+            <i class="pi pi-warehouse mr-2 text-green-300"></i>
+            <div>{{overviewResponse()?.totalAisles}} Aisles</div>
+        </div>
+    </div>
+    <p-tabMenu 
+        [model]="items" 
+        [activeItem]="activeItem" 
+        (activeItemChange)="onActiveItemChange($event)" />
+    <div class="tab-menu-container surface-card shadow-2 py-4">
+        <router-outlet></router-outlet>
+    </div>
+</ng-container>

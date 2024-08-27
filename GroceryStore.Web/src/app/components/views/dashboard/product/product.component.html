@@ -1,0 +1,232 @@
+<ng-container>
+    <p-toast />
+    <p-confirmPopup>
+        <ng-template pTemplate="content" let-message>
+            <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border p-3 mb-3">
+                <i [class]="message.icon" class="text-6xl text-primary-500"></i>
+                <p>{{ message.message }}</p>
+            </div>
+        </ng-template>
+    </p-confirmPopup>
+    <p-table class="text-xs p-datatable-sm"
+        [value]="products"
+        dataKey="id"
+        [paginator]="true"
+        [rows]="5"
+        editMode="row"
+        [rowsPerPageOptions]="[5, 10,25,50]"
+    >
+        <ng-template pTemplate="header">
+            <tr class="text-sm">
+                <th class="table-column">
+                    Name
+                    <p-columnFilter display="menu" type="text" field="name" placeholder="Product Name" ariaLabel="Name" matchMode="in" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect (ngModel)="value" [options]="uniqueProducts" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                                <ng-template pTemplate="header">
+                                    <div class="px-3 pt-3 pb-0">
+                                        <span class="font-bold">Product Picker</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template let-option pTemplate="item">
+                                    <div class="inline-block vertical-align-middle">
+                                        <span class="ml-1 mt-1">{{ option.name }}</span>
+                                    </div>
+                                </ng-template>
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th class="table-column">
+                    Aisle
+                    <p-columnFilter display="menu" type="text" field="aisleName" placeholder="Aisle 1" ariaLabel="Aisle" matchMode="in" [showMatchModes]="false" [showOperator]="false" [showAddButton]="false">
+                        <ng-template pTemplate="filter" let-value let-filter="filterCallback">
+                            <p-multiSelect (ngModel)="value" [options]="aisles" placeholder="Any" (onChange)="filter($event.value)" optionLabel="name" optionValue="name">
+                                <ng-template pTemplate="header">
+                                    <div class="px-3 pt-3 pb-0">
+                                        <span class="font-bold">Aisle Picker</span>
+                                    </div>
+                                </ng-template>
+                                <ng-template let-option pTemplate="item">
+                                    <div class="inline-block vertical-align-middle">
+                                        <span class="ml-1 mt-1">{{ option.name }}</span>
+                                    </div>
+                                </ng-template>
+                            </p-multiSelect>
+                        </ng-template>
+                    </p-columnFilter>
+                </th>
+                <th class="table-number-column">
+                    Price
+                    <p-columnFilter display="menu" type="numeric" field="price" placeholder="$3.50" ariaLabel="Price" currency="AUD"></p-columnFilter>
+                </th>
+                <th class="table-number-column">
+                    Quantity
+                    <p-columnFilter display="menu" type="numeric" field="quantity" ariaLabel="Quantity"></p-columnFilter>
+                </th>
+                <th class="table-date-column">
+                    Expiry Date
+                    <p-columnFilter display="menu" type="date" field="expiryDate" ariaLabel="Expiry Date"></p-columnFilter>
+                </th>
+                <th class="table-date-column">
+                    Purchase Date
+                    <p-columnFilter display="menu" type="date" field="purchaseDate" ariaLabel="Purchase Date"></p-columnFilter>
+                </th>
+                <th class="table-column">
+                    Created On
+                    <p-columnFilter display="menu" type="date" field="createdOn" ariaLabel="Created On"></p-columnFilter>
+                </th>
+                <th class="table-column">
+                    Created By
+                    <p-columnFilter display="menu" type="text" field="createdBy" placeholder="Username" ariaLabel="Created By"></p-columnFilter>
+                </th>
+                <th class="table-column">
+                    Modified On
+                    <p-columnFilter display="menu" type="date" field="modifiedOn" placeholder="Date" ariaLabel="Modified On"></p-columnFilter>
+                </th>
+                <th class="table-column">
+                    Modified By
+                    <p-columnFilter display="menu" type="text" field="modifiedBy" placeholder="Username" ariaLabel="Modified By"></p-columnFilter>
+                </th>
+                <th class="table-controls flex justify-content-center">
+                    <button 
+                        size="small"
+                        pButton 
+                        pRipple 
+                        type="button" 
+                        icon="pi pi-plus-circle" 
+                        (click)="openAddRowDialog()" 
+                        class="p-button-rounded p-button-text"></button>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-product let-editing="editing" let-ri="rowIndex">
+            <tr class="text-sm" [pEditableRow]="product">
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input style="width:100%" pInputText type="text" [(ngModel)]="product.name" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.name }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-dropdown [options]="aisles" [(ngModel)]="product.aisleName" optionValue="name" optionLabel="name" placeholder="Aisle" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.aisleName }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input style="width:100%" pInputText [(ngModel)]="product.price" [pKeyFilter]="'money'" type="text"  />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.price | currency }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input style="width:100%" pInputText type="text" [(ngModel)]="product.quantity" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.quantity | number }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-calendar class="flex"
+                            appendTo="body"
+                            [iconDisplay]="'input'" 
+                            [showIcon]="true" 
+                            [defaultDate]="product.expiryDate"
+                            [(ngModel)]="product.expiryDate" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.expiryDate | date: 'dd/MM/yyyy' }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <p-calendar 
+                            appendTo="body"
+                            [iconDisplay]="'input'" 
+                            [showIcon]="true"
+                            [defaultDate]="product.purchaseDate"
+                            [(ngModel)]="product.purchaseDate" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ product.purchaseDate | date: 'dd/MM/yyyy' }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    {{ product.createdOn | date:'dd/MM/yyyy hh:mm:ss a' }}
+                </td>
+                <td>
+                    {{ product.createdBy }}
+                </td>
+                <td>
+                    {{ product.modifiedOn | date:'dd/MM/yyyy hh:mm:ss a' }}
+                </td>
+                <td>
+                    {{ product.modifiedBy ? product.modifiedBy : null }}
+                </td>
+                <td>
+                    <div class="flex align-items-center justify-content-center">
+                        @if (!editing)
+                        {
+                            <button 
+                                size="small"
+                                pButton 
+                                pRipple 
+                                type="button" 
+                                pInitEditableRow 
+                                icon="pi pi-pencil" 
+                                (click)="onRowEditInit(product)" 
+                                class="p-button-rounded p-button-text"></button>
+                            <button 
+                                size="small"
+                                pButton 
+                                pRipple 
+                                type="button" 
+                                icon="pi pi-trash" 
+                                (click)="onRowDelete($event, product)" 
+                                class="p-button-rounded p-button-text p-button-danger"></button>
+                        } @else {
+                            <button 
+                                size="small"
+                                pButton 
+                                pRipple 
+                                type="button" 
+                                pSaveEditableRow 
+                                icon="pi pi-check" 
+                                (click)="onRowEditSave(product)" 
+                                class="p-button-rounded p-button-text p-button-success"></button>
+                            <button 
+                                size="small"
+                                pButton pRipple 
+                                type="button" 
+                                pCancelEditableRow 
+                                icon="pi pi-times" 
+                                (click)="onRowEditCancel(product, ri)" 
+                                class="p-button-rounded p-button-text p-button-danger"></button>
+                        }
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</ng-container>

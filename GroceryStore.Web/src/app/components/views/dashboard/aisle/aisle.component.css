@@ -1,0 +1,17 @@
+.table-column {
+    min-width: 160px;
+    width: 1%;
+}
+
+.table-controls {
+    min-width: 130px;
+}
+
+.table-number-column, .p-inputnumber {
+    min-width: 130px;
+    width: 1%;
+}
+
+.table-date-column {
+    min-width: 170px;
+}

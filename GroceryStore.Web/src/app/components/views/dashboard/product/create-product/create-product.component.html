@@ -1,0 +1,57 @@
+<ng-container>
+    <p-toast />
+    <div class="flex flex-column row gap-2" [formGroup]="createProductForm">
+        <div class="flex flex-row gap-2 mt-2">
+            <div class="field">
+                <p-autoComplete
+                    placeholder="New Product"
+                    formControlName="name"
+                    [suggestions]="filteredProducts"
+                    optionValue="name"
+                    optionLabel="name"
+                    (completeMethod)="searchProducts($event)" />
+            </div>
+            <div class="field">
+                <p-dropdown
+                    [placeholder]="config.data.aisles[0]"
+                    formControlName="aisle"
+                    [options]="config.data.aisles"
+                    optionLabel="name" />
+            </div>
+        </div>
+        <div class="flex flex-row gap-2">
+            <div class="field">
+                <label for="price">Price</label>
+                <input pInputText pKeyFilter="money" class="w-full" type="text" formControlName="price" />
+            </div>
+            <div class="field">
+                <label for="quantity">Quantity</label>
+                <input pInputText pKeyFilter="int" class="w-full" type="text" formControlName="quantity" />
+            </div>
+        </div>
+        <div class="flex flex-row gap-2">
+            <div class="field">
+                <label for="quantity">Expiry Date</label>
+                <p-calendar 
+                    appendTo="body"
+                    class="field"
+                    formControlName="expiryDate" 
+                    iconDisplay="input"
+                    [showIcon]="true" />
+            </div>
+            <div class="field">
+                <label for="quantity">Purchase Date</label>
+                <p-calendar 
+                    appendTo="body"
+                    class="field"
+                    formControlName="purchaseDate" 
+                    iconDisplay="input"
+                    [showIcon]="true" />
+            </div>
+        </div>
+        <div class="flex flex-row justify-content-between">
+            <button pButton class="p-button-danger" label="Cancel" (click)="onCancel()"></button>
+            <button pButton label="Submit" (click)="onSubmit()"></button>
+        </div>
+    </div>
+</ng-container>

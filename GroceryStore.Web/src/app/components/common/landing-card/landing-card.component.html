@@ -1,0 +1,14 @@
+<ng-container>
+    <div class="surface-ground flex align-items-center justify-content-center min-w-screen min-h-screen h-full overflow-hidden">
+        <div>
+            <div class="surface-card flex flex-column justify-content-between shadow-2 border-round py-6 px-5 sm:px- overflow-hidden">
+                <div class="text-900 text-3xl font-medium mb-4">
+                    <ng-content select="[landing-card-title]"></ng-content>
+                </div>
+                <div>
+                    <ng-content select="[landing-card-body]"></ng-content>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-container>

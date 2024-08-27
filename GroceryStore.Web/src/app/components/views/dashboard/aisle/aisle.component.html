@@ -1,0 +1,124 @@
+<ng-container>
+    <p-toast />
+    <p-confirmPopup>
+        <ng-template pTemplate="content" let-message>
+            <div class="flex flex-column align-items-center w-full gap-3 border-bottom-1 surface-border p-3 mb-3">
+                <i [class]="message.icon" class="text-6xl text-primary-500"></i>
+                <p>{{ message.message }}</p>
+            </div>
+        </ng-template>
+    </p-confirmPopup>
+    <p-table
+        [value]="aisles"
+        dataKey="id"
+        [paginator]="true"
+        [rows]="5"
+        editMode="row"
+        [rowsPerPageOptions]="[5, 10,25,50]"
+        [globalFilterFields]="['name']"
+    >
+        <ng-template pTemplate="header">
+            <tr class="text-sm">
+                <th style="width:20%">
+                    Name
+                    <p-columnFilter display="menu" type="text" field="name" placeholder="Aisle Name" ariaLabel="Name"></p-columnFilter>
+
+                </th>
+                <th style="width:20%">
+                    Created On
+                    <p-columnFilter display="menu" type="date" field="createdOn" placeholder="Date" ariaLabel="Created On"></p-columnFilter>
+                </th>
+                <th style="width:20%">
+                    Created By
+                    <p-columnFilter display="menu" type="text" field="createdBy" placeholder="Username" ariaLabel="Created By"></p-columnFilter>
+                </th>
+                <th style="width:20%">
+                    Modified On
+                    <p-columnFilter display="menu" type="date" field="modifiedOn" placeholder="Date" ariaLabel="Modified On"></p-columnFilter>
+                </th>
+                <th style="width:20%">
+                    Modified By
+                    <p-columnFilter display="menu" type="text" field="modifiedBy" placeholder="Username" ariaLabel="Modified By"></p-columnFilter>
+                </th>
+                <th class="table-controls flex justify-content-center">
+                    <button 
+                        size="small"
+                        pButton 
+                        pRipple 
+                        type="button" 
+                        icon="pi pi-plus-circle" 
+                        (click)="openAddRowDialog()" 
+                        class="p-button-rounded p-button-text"></button>
+                </th>
+            </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-aisle let-editing="editing" let-ri="rowIndex">
+            <tr class="text-sm" [pEditableRow]="aisle">
+                <td>
+                    <p-cellEditor>
+                        <ng-template pTemplate="input">
+                            <input pInputText type="text" [(ngModel)]="aisle.name" />
+                        </ng-template>
+                        <ng-template pTemplate="output">
+                            {{ aisle.name }}
+                        </ng-template>
+                    </p-cellEditor>
+                </td>
+                <td>
+                    {{ aisle.createdOn | date:'dd/MM/yyyy hh:mm:ss a' }}
+                </td>
+                <td>
+                    {{ aisle.createdBy }}
+                </td>
+                <td>
+                    {{ aisle.modifiedOn | date:'dd/MM/yyyy hh:mm:ss a' }}
+                </td>
+                <td>
+                    {{ aisle.modifiedBy ? aisle.modifiedBy : null }}
+                </td>
+                <td>
+                    <div class="flex align-items-center justify-content-center gap-2">
+                        @if (!editing)
+                        {
+                            <button 
+                                pButton 
+                                pRipple 
+                                type="button" 
+                                pInitEditableRow 
+                                icon="pi pi-pencil" 
+                                (click)="onRowEditInit(aisle)" 
+                                class="p-button-rounded p-button-text">
+                            </button>
+                            <button 
+                                size="small"
+                                pButton 
+                                pRipple 
+                                type="button" 
+                                icon="pi pi-trash" 
+                                (click)="onRowDeleteInit($event, aisle)" 
+                                class="p-button-rounded p-button-text p-button-danger"></button>
+                        } @else {
+                            <button 
+                                pButton 
+                                pRipple 
+                                type="button" 
+                                pSaveEditableRow 
+                                icon="pi pi-check" 
+                                (click)="onRowEditSave(aisle)" 
+                                class="p-button-rounded p-button-text p-button-success mr-2">
+                            </button>
+                            <button 
+                                pButton pRipple 
+                                type="button" 
+                                pCancelEditableRow 
+                                icon="pi pi-times" 
+                                (click)="onRowEditCancel(aisle, ri)" 
+                                class="p-button-rounded p-button-text p-button-danger">
+                            </button>
+                        }
+                    </div>
+                </td>
+            </tr>
+        </ng-template>
+    </p-table>
+</ng-container>

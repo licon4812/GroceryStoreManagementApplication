@@ -1,0 +1,47 @@
+<ng-container>
+    <div class="flex flex-column justify-content-between px-6 gap-3">
+        <div class="mb-4">
+            Inventory
+        </div>
+        <div class="overview-row flex flex-row justify-content-evenly gap-3 md:px-6 lg:px-8 flex-wrap">
+            <app-stat-card icon="pi pi-box" colour="blue" title="Products" [body]="overviewResponse()?.totalProducts?.toString() || '' ">
+                <ng-container stat-card-detail>
+                    @if (overviewResponse() && overviewResponse()!.totalExpiring > 0){
+                        <span class="text-red-500 font-medium">{{overviewResponse()!.totalExpiring}} expiring</span>
+                    }@else {
+                        <span class="text-green-500 font-medium'">0 expiring</span>
+                    }
+                    <span class="text-500"> in the next week</span>
+                </ng-container>
+            </app-stat-card>
+            <app-stat-card icon="pi pi-warehouse" colour="green" title="Aisles" [body]="overviewResponse()?.totalAisles?.toString() || ''">
+            </app-stat-card>
+        </div>
+        <div class="mb-4">
+            Recent Purchases
+        </div>
+        <div class="overview-row flex flex-row justify-content-evenly row-gap-4 md:px-6 lg:px-8 flex-wrap">
+            @for (data of overviewResponse()?.productOverviews?.slice(0,8); track data.name)
+            {
+                <app-stat-card icon="pi pi-shopping-cart" colour="yellow" [title]="data.name" [body]="data.sumProducts.toString()">
+                    <ng-container stat-card-detail>
+                        <div>
+                            <span class="text-green-500 font-medium">+{{data.sumPurchased}} purchased</span>
+                            <span class="text-500"> in the last week</span>
+                        </div>
+                        <div>
+                            @if (data.sumExpiring > 0)
+                            {
+                                <span class="text-red-500 font-medium">-{{data.sumExpiring}} expiring</span>
+                                <span class="text-500"> in the next week</span>
+                            } @else {
+                                <span class="text-blue-500 font-medium">0 expiring</span>
+                                <span class="text-500"> in the next week</span>
+                            }
+                        </div>
+                    </ng-container>
+                </app-stat-card>
+            }
+        </div>
+    </div>
+</ng-container>

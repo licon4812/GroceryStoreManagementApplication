@@ -1,0 +1,15 @@
+<ng-container>
+    <app-landing-card>
+        <ng-container landing-card-title>404 - Uh Oh... :(</ng-container>
+        <ng-container landing-card-body>
+            <p>
+                The page you requested could not be found, or does not exist
+            </p>
+            <div>
+                <a [routerLink]="['/']">
+                    <button pButton pRipple label="Take me back" icon="pi pi-chevron-circle-left" class="w-full" (click)="goBack()"></button>
+                </a> 
+            </div>
+        </ng-container>
+    </app-landing-card>
+</ng-container>

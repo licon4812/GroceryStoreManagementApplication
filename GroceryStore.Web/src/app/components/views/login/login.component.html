@@ -1,0 +1,16 @@
+<ng-container>
+    <app-landing-card>
+        <ng-container landing-card-title>Welcome Back</ng-container>
+        <ng-container landing-card-body>
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="flex flex-column row-gap-2 mb-3">
+                        <input formControlName="userName" id="username" type="text" placeholder="Username" pInputText class="w-full">
+                        <input formControlName="password" id="password" type="password" placeholder="Password" pInputText class="w-full">
+                </div>
+                <div>
+                    <button pButton pRipple type="submit" label="Sign In" icon="pi pi-user" class="w-full"></button>
+                </div>
+            </form>
+        </ng-container>
+    </app-landing-card>
+</ng-container>

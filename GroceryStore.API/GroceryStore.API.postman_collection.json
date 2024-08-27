@@ -1,0 +1,440 @@
+{
+	"info": {
+		"_postman_id": "6812664f-0c65-44e3-88db-bd4e17e6ea63",
+		"name": "GroceryStore.API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "14878553"
+	},
+	"item": [
+		{
+			"name": "Aisle",
+			"item": [
+				{
+					"name": "Get Aisles",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/aisles",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"aisles"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Aisle",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/aisles/66c82966791a5f2e65d635b7",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"aisles",
+								"66c82966791a5f2e65d635b7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Aisle",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Aisle 5\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiURL}}/aisles/create",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"aisles",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Aisle",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"66c82a0f791a5f2e65d635b9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiURL}}/aisles/delete",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"aisles",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Products",
+			"item": [
+				{
+					"name": "Get Products",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/products",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"products"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Product",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Name\": \"Onions\",\r\n    \"Price\": \"0.48\",\r\n    \"Quantity\": 15,\r\n    \"ExpiryDate\": \"2024-11-26\",\r\n    \"PurchaseDate\": \"2024-08-26\",\r\n    \"AisleId\": \"66c82966791a5f2e65d635b7\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiURL}}/products/create",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"products",
+								"create"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/products/abc",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"products",
+								"abc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete Product",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"Id\": \"66c82a0f791a5f2e65d635b9\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiURL}}/products/delete",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"products",
+								"delete"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Product By AisleId",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/products/aisle/66c82966791a5f2e65d635b7",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"products",
+								"aisle",
+								"66c82966791a5f2e65d635b7"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Inventory Overview",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/products/overview?expiryDate=2024-09-01&purchaseDate=2024-08-19",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"products",
+								"overview"
+							],
+							"query": [
+								{
+									"key": "expiryDate",
+									"value": "2024-09-01"
+								},
+								{
+									"key": "purchaseDate",
+									"value": "2024-08-19"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Diagnostics",
+			"item": [
+				{
+					"name": "Ping",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/diagnostics/ping",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"diagnostics",
+								"ping"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "MongoDb Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/diagnostics/mongodb",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"diagnostics",
+								"mongodb"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Simulate",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/diagnostics/simulate/401",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"diagnostics",
+								"simulate",
+								"401"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwtToken\", pm.response.json().token);\r",
+									""
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "{{jwtToken}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"UserName\": \"{{username}}\",\r\n    \"Password\": \"{{password}}\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{ApiURL}}/auth/login",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/auth/check",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"auth",
+								"check"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"pm.environment.set(\"jwtToken\", \"\")"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "{{ApiURL}}/auth/logout",
+							"host": [
+								"{{ApiURL}}"
+							],
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{jwtToken}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"packages": {},
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

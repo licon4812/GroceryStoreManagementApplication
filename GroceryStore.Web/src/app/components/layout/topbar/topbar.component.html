@@ -1,0 +1,13 @@
+<ng-container>
+    <div class="layout-topbar">
+        <span style="max-width: 200px;">Grocery Store Inventory Management Application</span>
+    
+        <div #topbarmenu class="layout-topbar-menu">
+            <button class="p-link layout-topbar-button" (click)="profileMenu.toggle($event)">
+                <i class="pi pi-user"></i>
+                <span>Profile</span>
+            </button>
+            <p-menu #profileMenu [popup]="true" [model]="profileItems"></p-menu>
+        </div>
+    </div>
+</ng-container>

@@ -1,0 +1,7 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:4.4
+    ports:
+      - "1337:27017" # Map container port 27017 to host port 1337

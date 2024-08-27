@@ -1,0 +1,14 @@
+<ng-container>
+    <div class="flex flex-column row gap-2" [formGroup]="createProductForm">
+        <div class="flex flex-row gap-2 mt-2">
+            <div class="field">
+                <label for="name">Name</label>
+                <input id="name" pInputText class="w-full" type="text" formControlName="name" />
+            </div>
+        </div>
+        <div class="flex flex-row justify-content-between">
+            <button pButton class="p-button-danger" label="Cancel" (click)="onCancel()"></button>
+            <button pButton label="Submit" (click)="onSubmit()"></button>
+        </div>
+    </div>
+</ng-container>

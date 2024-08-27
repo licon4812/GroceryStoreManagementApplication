@@ -1,0 +1,10 @@
+.dashboard-nav-line {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    width: 460px;
+}
+
+.tab-menu-container {
+    min-width: 360px;
+}
